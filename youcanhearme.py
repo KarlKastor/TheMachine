@@ -77,7 +77,7 @@ def getsentence(s):
     s = s.replace(r'’',"'")
     words = re.split('[ \.]',s)
     for z in range(len(words)):
-        print 'ZZZZZZZZZZZZZ' + str(z)
+        ##print 'ZZZZZZZZZZZZZ' + str(z)
         a=words[z]
         
         ##is the word saved because of problems with the online sound
