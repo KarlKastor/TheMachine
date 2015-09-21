@@ -23,21 +23,20 @@ def from_url(url,boxes=None):
 
 def irr(imagePath,boxes=None,filename="output.jpg"):
     """adds the boxes to the faces"""
-
-
     
     ##detect faces and sort them left to right
     faces = sorted(detect_faces(imagePath),key= lambda x: x[0])
 
     if not boxes:
         boxes = ["irrelevant"]*len(faces)
-        
-    if "," in boxes:
-        boxes = boxes.replace(" ","").lower().split(",")
-    elif " " in boxes:
-        boxes = boxes.lower().split(" ")
-    else:
-        boxes = [boxes]
+
+    ##remember: strings can be type unicode
+
+    if type(boxes) is not list: 
+        if "," in boxes:
+            boxes = boxes.replace(" ","").lower().split(",")
+        else:
+            boxes = boxes.lower().split(" ")
 
     ##if not enough boxes are specified, fill it up with irrelevant
     if len(boxes)==0:
