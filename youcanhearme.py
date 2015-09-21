@@ -9,10 +9,10 @@ import requests, re
 ##from pydub import AudioSegment
 ##httplib.HTTPConnection.debuglevel = 1
 
-sound_dir = 'sounds\\'
-temp_dir = 'temp\\'
-out_dir = 'output\\'
-rep_dir = 'replace\\'
+sound_dir = 'sounds/'
+temp_dir = 'temp/'
+out_dir = 'output/'
+rep_dir = 'replace/'
 lang = 'en'
 ill_chars='/\?!:*|",.'
 

@@ -1,3 +1,4 @@
+import os
 import sys
 import urllib
 import cv2
@@ -8,15 +9,15 @@ from botpw import i
 client = ImgurClient(*i)
 
 cascPath = "cascade.xml"
-boxPath = "boxes\\"
+boxPath = "boxes/"
 
-output_dir = "output\\"
+output_dir = "output/"
 
 def from_url(url,boxes=None):
     if boxes is None:
         boxes = []
     imagePath, _ = urllib.urlretrieve(url)
-    filename = output_dir + imagePath[imagePath.rfind("\\")+1:]
+    filename = output_dir + os.path.basename(imagePath)
     irr(imagePath,boxes,filename)
     d = client.upload_from_path(filename, config=None, anon=True)
     return d["link"]
